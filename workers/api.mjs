@@ -1535,8 +1535,7 @@ async function handleUptime(request, env, netuid, url) {
   const validationError = validateQueryParams(url, ["window"]);
   if (validationError) return analyticsQueryError(validationError);
   const windowParam = url.searchParams.get("window") || "90d";
-  const days = UPTIME_WINDOWS[windowParam];
-  if (!days) {
+  if (!Object.hasOwn(UPTIME_WINDOWS, windowParam)) {
     return errorResponse(
       "invalid_query",
       "Query parameter `window` must be one of: 90d, 1y.",
@@ -1544,6 +1543,7 @@ async function handleUptime(request, env, netuid, url) {
       { parameter: "window" },
     );
   }
+  const days = UPTIME_WINDOWS[windowParam];
   const cutoff = new Date(Date.now() - days * 24 * 60 * 60 * 1000)
     .toISOString()
     .slice(0, 10);
