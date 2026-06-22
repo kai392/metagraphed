@@ -1085,6 +1085,26 @@ export async function readRpcPoolArtifact(env, now = Date.now()) {
   return poolArtifact;
 }
 
+// KV_HEALTH_META is written by the health cron (~15 min cadence) and read by
+// every analytics handler (percentiles, incidents, trends, uptime, trajectory,
+// leaderboards). Each handler reads it independently; this in-isolate memo
+// collapses repeated per-request KV reads on warm isolates — same pattern as
+// latestPointer (#367) and readRpcPoolArtifact (#1309). Null results are not
+// cached so a transient cold KV does not stay sticky.
+export const HEALTH_META_KV_TTL_MS = 60_000;
+let healthMetaKvMemo = { env: null, value: null, expiresAt: 0 };
+
+export async function readHealthMetaKv(env, now = Date.now()) {
+  if (healthMetaKvMemo.env === env && now < healthMetaKvMemo.expiresAt) {
+    return healthMetaKvMemo.value;
+  }
+  const value = await readHealthKv(env, KV_HEALTH_META);
+  if (value !== null) {
+    healthMetaKvMemo = { env, value, expiresAt: now + HEALTH_META_KV_TTL_MS };
+  }
+  return value;
+}
+
 async function resolveSubnetSlugRoute(
   env,
   url,
@@ -1225,7 +1245,7 @@ async function handleApiRequest(
   if (overlayCache) {
     // Cheap KV read of just the snapshot time; on a hit this + the cache match
     // is the whole request (no R2 GET / overlay / re-stringify).
-    const opMeta = await readHealthKv(env, KV_HEALTH_META);
+    const opMeta = await readHealthMetaKv(env);
     const lastRunAt = opMeta?.last_run_at || null;
     if (lastRunAt) {
       overlayCacheKey = new Request(
@@ -1495,7 +1515,7 @@ async function handleBulkHealthTrends(
       (row) => String(row.day || row.date) >= windowCutoff,
     );
   }
-  const meta = await readHealthKv(env, KV_HEALTH_META);
+  const meta = await readHealthMetaKv(env);
   const data = formatBulkTrends({
     observedAt: meta?.last_run_at || null,
     windows,
@@ -1559,7 +1579,7 @@ async function handleHealthTrends(request, env, netuid) {
   for (const [label, rows] of windowRows) {
     windows[label] = rows;
   }
-  const meta = await readHealthKv(env, KV_HEALTH_META);
+  const meta = await readHealthMetaKv(env);
   const data = formatTrends({
     netuid,
     observedAt: meta?.last_run_at || null,
@@ -1671,7 +1691,7 @@ async function handleHealthPercentiles(request, env, netuid, url) {
      HAVING MAX(lat_cnt) > 0`,
     [netuid, Date.now() - days * DAY_MS],
   );
-  const meta = await readHealthKv(env, KV_HEALTH_META);
+  const meta = await readHealthMetaKv(env);
   const data = formatPercentiles({
     netuid,
     window: label,
@@ -1747,7 +1767,7 @@ async function handleHealthIncidents(request, env, netuid, url) {
       [netuid, since, INCIDENT_GAP_MS, MIN_INCIDENT_SAMPLES, MAX_INCIDENT_ROWS],
     ),
   ]);
-  const meta = await readHealthKv(env, KV_HEALTH_META);
+  const meta = await readHealthMetaKv(env);
   const data = formatIncidents({
     netuid,
     window: label,
@@ -1824,7 +1844,7 @@ async function handleGlobalIncidents(request, env, url) {
       MAX_INCIDENT_ROWS,
     ],
   );
-  const meta = await readHealthKv(env, KV_HEALTH_META);
+  const meta = await readHealthMetaKv(env);
   const data = formatGlobalIncidents({
     window: label,
     observedAt: meta?.last_run_at || null,
@@ -2272,7 +2292,7 @@ async function handleLeaderboards(request, env, url) {
         : null,
   }));
 
-  const meta = await readHealthKv(env, KV_HEALTH_META);
+  const meta = await readHealthMetaKv(env);
   const data = formatLeaderboards({
     board: requestedBoard || null,
     limit,
@@ -2412,7 +2432,7 @@ async function handleRpcUsage(request, env, url) {
         ],
       ),
     ]);
-  const meta = await readHealthKv(env, KV_HEALTH_META);
+  const meta = await readHealthMetaKv(env);
   const data = formatRpcUsage({
     window: label,
     observedAt: meta?.last_run_at || null,
@@ -3192,7 +3212,7 @@ async function handleHealthRequest(request, env) {
   // Read the publish pointer + the operational-health meta concurrently (one
   // round-trip instead of two) — both are independent KV gets.
   const [pointer, meta] = bindings.kv
-    ? await Promise.all([latestPointer(env), readHealthKv(env, KV_HEALTH_META)])
+    ? await Promise.all([latestPointer(env), readHealthMetaKv(env)])
     : [null, null];
   const publishedAtIso =
     pointer && typeof pointer.published_at === "string"
@@ -3742,7 +3762,7 @@ async function liveHealthOverlay(env, matched, staticData) {
       break;
     }
     case "freshness": {
-      const meta = await readHealthKv(env, KV_HEALTH_META);
+      const meta = await readHealthMetaKv(env);
       data = mergeFreshness(staticData, meta);
       break;
     }
