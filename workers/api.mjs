@@ -645,7 +645,7 @@ export async function handleEventIngest(request, env) {
     return errorResponse("unavailable", "Event store unavailable.", 503);
   }
   const raw = await request.text();
-  if (raw.length > MAX_EVENTS_INGEST_BODY_BYTES) {
+  if (utf8Bytes(raw).length > MAX_EVENTS_INGEST_BODY_BYTES) {
     return errorResponse(
       "payload_too_large",
       `Body exceeds ${MAX_EVENTS_INGEST_BODY_BYTES} bytes.`,
@@ -733,7 +733,7 @@ export async function handleNeuronBackfill(request, env) {
     return errorResponse("unavailable", "History store unavailable.", 503);
   }
   const raw = await request.text();
-  if (raw.length > MAX_BACKFILL_INGEST_BODY_BYTES) {
+  if (utf8Bytes(raw).length > MAX_BACKFILL_INGEST_BODY_BYTES) {
     return errorResponse(
       "payload_too_large",
       `Body exceeds ${MAX_BACKFILL_INGEST_BODY_BYTES} bytes.`,
@@ -821,7 +821,7 @@ export async function handleEconomicsBackfill(request, env) {
     return errorResponse("unavailable", "History store unavailable.", 503);
   }
   const raw = await request.text();
-  if (raw.length > MAX_BACKFILL_INGEST_BODY_BYTES) {
+  if (utf8Bytes(raw).length > MAX_BACKFILL_INGEST_BODY_BYTES) {
     return errorResponse(
       "payload_too_large",
       `Body exceeds ${MAX_BACKFILL_INGEST_BODY_BYTES} bytes.`,
