@@ -859,6 +859,8 @@ export async function handleAccountSubnets(request, env, ss58) {
 export async function handleSubnetEvents(request, env, netuid, url) {
   const validationError = validateQueryParams(url, [
     "kind",
+    "block_start",
+    "block_end",
     "limit",
     "offset",
     "cursor",
@@ -876,6 +878,19 @@ export async function handleSubnetEvents(request, env, netuid, url) {
       message: `"${kind}" is not a supported event kind. Supported: ${INGESTED_EVENT_KINDS.join(", ")}.`,
     });
   }
+  // Optional block-height range filter, parity with the extrinsics, chain-events
+  // and account-events feeds. A bounded range stays index-satisfiable, so it
+  // seeks rather than scans this public, ~60s-cached route.
+  const blockStart = parseNonNegativeIntParam(
+    url.searchParams.get("block_start"),
+    "block_start",
+  );
+  if (blockStart.error) return analyticsQueryError(blockStart.error);
+  const blockEnd = parseNonNegativeIntParam(
+    url.searchParams.get("block_end"),
+    "block_end",
+  );
+  if (blockEnd.error) return analyticsQueryError(blockEnd.error);
   // Keyset (cursor) pagination on (block_number, event_index), mirroring
   // loadAccountEvents; offset stays as a deprecated fallback, cursor wins.
   const cur = decodeCursor(cursor, 2);
@@ -885,6 +900,14 @@ export async function handleSubnetEvents(request, env, netuid, url) {
   if (kind) {
     sql += " AND event_kind = ?";
     params.push(kind);
+  }
+  if (blockStart.value != null) {
+    sql += " AND block_number >= ?";
+    params.push(blockStart.value);
+  }
+  if (blockEnd.value != null) {
+    sql += " AND block_number <= ?";
+    params.push(blockEnd.value);
   }
   if (useCursor) {
     sql += " AND (block_number, event_index) < (?, ?)";
