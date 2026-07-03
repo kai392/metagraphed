@@ -189,6 +189,36 @@ test("formatAccountEvent drops invalid observed_at strings to null", () => {
   assert.equal(out.observed_at, null);
 });
 
+test("formatAccountEvent drops zero/blank observed_at to null (not epoch 1970)", () => {
+  for (const observed_at of [0, "0", "", "   "]) {
+    const out = formatAccountEvent({
+      block_number: 1,
+      event_kind: "Transfer",
+      observed_at,
+    });
+    assert.equal(
+      out.observed_at,
+      null,
+      `observed_at=${JSON.stringify(observed_at)} must not become epoch 1970`,
+    );
+  }
+});
+
+test("formatAccountEvent drops out-of-range observed_at to null", () => {
+  for (const observed_at of ["8640000000000001", 8640000000000001]) {
+    const out = formatAccountEvent({
+      block_number: 1,
+      event_kind: "Transfer",
+      observed_at,
+    });
+    assert.equal(
+      out.observed_at,
+      null,
+      `observed_at=${JSON.stringify(observed_at)} must not leak an invalid ISO string`,
+    );
+  }
+});
+
 test("buildAccountTransfers coerces string-typed observed_at cells to ISO timestamps", () => {
   const out = buildAccountTransfers(
     [
