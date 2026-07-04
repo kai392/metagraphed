@@ -100,6 +100,25 @@ describe("loadSubnetWeights", () => {
     assert.equal(d.sets_per_setter, 10);
   });
 
+  test("counts distinct setters over a hotkey-or-uid identity, not hotkey alone", async () => {
+    // WeightsSet events can carry a NULL hotkey; a bare COUNT(DISTINCT hotkey)
+    // collapses every hotkey-less event to one dropped NULL and undercounts the
+    // setters. The loader must fall back to (netuid, uid), mirroring #3011.
+    let captured;
+    const d1 = async (sql, params) => {
+      captured = { sql, params };
+      return [{ distinct_setters: 3, weight_sets: 30, newest_observed: null }];
+    };
+    await loadSubnetWeights(d1, 7, { windowLabel: "7d", windowDays: 7 });
+    assert.doesNotMatch(
+      captured.sql,
+      /COUNT\(DISTINCT hotkey\)/,
+      "must not count distinct hotkey alone",
+    );
+    assert.match(captured.sql, /WHEN hotkey IS NOT NULL/);
+    assert.match(captured.sql, /'uid:' \|\| netuid \|\| ':' \|\| uid/);
+  });
+
   test("a cold store (no rows) yields the zeroed card", async () => {
     const d = await loadSubnetWeights(async () => [], 9, {
       windowLabel: "30d",

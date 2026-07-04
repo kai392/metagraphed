@@ -49,8 +49,8 @@ function setsPerSetter(sets, setters) {
 }
 
 // Shape one subnet's weight-setting scorecard from the single-row account_events aggregate.
-// `row` carries weight_sets (COUNT(*)), distinct_setters (COUNT(DISTINCT hotkey)), and
-// newest_observed (MAX(observed_at)). Null-safe: a null/absent row yields the zeroed card.
+// `row` carries weight_sets (COUNT(*)), distinct_setters (COUNT(DISTINCT setter identity)),
+// and newest_observed (MAX(observed_at)). Null-safe: a null/absent row yields the zeroed card.
 export function buildSubnetWeights(row, netuid, { window } = {}) {
   const distinctSetters = toCount(row?.distinct_setters);
   const weightSets = toCount(row?.weight_sets);
@@ -77,9 +77,20 @@ export async function loadSubnetWeights(
   { windowLabel, windowDays } = {},
 ) {
   const cutoff = Date.now() - windowDays * DAY_MS;
+  // WeightsSet ingestion can omit hotkey, so count distinct setters over a
+  // hotkey-or-(netuid,uid) identity rather than COUNT(DISTINCT hotkey) alone --
+  // otherwise every hotkey-less WeightsSet collapses to a single NULL that
+  // COUNT(DISTINCT) drops, undercounting distinct_setters (and inflating
+  // sets_per_setter). Mirrors the network /chain/weights loader (#3011).
+  const setterIdentity =
+    "CASE " +
+    "WHEN hotkey IS NOT NULL AND hotkey != '' THEN 'hotkey:' || hotkey " +
+    "WHEN uid IS NOT NULL THEN 'uid:' || netuid || ':' || uid " +
+    "ELSE NULL END";
   const rows = await d1(
-    "SELECT COUNT(*) AS weight_sets, COUNT(DISTINCT hotkey) AS distinct_setters, " +
-      "MAX(observed_at) AS newest_observed " +
+    "SELECT COUNT(*) AS weight_sets, COUNT(DISTINCT " +
+      setterIdentity +
+      ") AS distinct_setters, MAX(observed_at) AS newest_observed " +
       "FROM account_events WHERE netuid = ? AND event_kind = ? AND observed_at >= ?",
     [netuid, WEIGHTS_EVENT_KIND, cutoff],
   );
