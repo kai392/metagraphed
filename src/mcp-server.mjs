@@ -38,6 +38,12 @@ import {
   loadGapsList,
 } from "./gaps-mcp.mjs";
 import {
+  LIST_SEARCH_INDEX_INSTRUCTIONS,
+  LIST_SEARCH_INDEX_MCP_TOOL,
+  LIST_SEARCH_INDEX_OUTPUT_SCHEMA,
+  loadSearchIndexList,
+} from "./search-index-mcp.mjs";
+import {
   LIST_ENDPOINT_POOLS_INSTRUCTIONS,
   LIST_ENDPOINT_POOLS_MCP_TOOL,
   LIST_ENDPOINT_POOLS_OUTPUT_SCHEMA,
@@ -547,6 +553,7 @@ export const MCP_INSTRUCTIONS =
   GET_ADAPTER_INSTRUCTIONS +
   LIST_CURATION_INSTRUCTIONS +
   LIST_GAPS_INSTRUCTIONS +
+  LIST_SEARCH_INDEX_INSTRUCTIONS +
   "Use list_enrichment_targets to plan coverage-depth work across schemas, " +
   "fixtures, examples, provenance, and candidate-review gaps, and " +
   "get_subnet_gaps for one subnet's interface gap priorities and contributor " +
@@ -6360,6 +6367,12 @@ export const MCP_TOOLS = [
     },
   },
   {
+    ...LIST_SEARCH_INDEX_MCP_TOOL,
+    async handler(args, ctx) {
+      return loadSearchIndexList(ctx, args);
+    },
+  },
+  {
     ...LIST_CURATION_MCP_TOOL,
     async handler(args, ctx) {
       return loadCurationList(ctx, args);
@@ -10012,6 +10025,7 @@ const TOOL_OUTPUT_SCHEMAS = {
       notes: NULLABLE_STRING,
     },
   },
+  list_search_index: LIST_SEARCH_INDEX_OUTPUT_SCHEMA,
   list_curation: LIST_CURATION_OUTPUT_SCHEMA,
   list_gaps: LIST_GAPS_OUTPUT_SCHEMA,
   list_endpoint_pools: LIST_ENDPOINT_POOLS_OUTPUT_SCHEMA,
