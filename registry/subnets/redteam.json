@@ -145,6 +145,27 @@
         "https://github.com/RedTeamSubnet/RedTeam/blob/main/src/redteam_core/challenge_pool/active_challenges.yaml"
       ],
       "url": "https://raw.githubusercontent.com/RedTeamSubnet/RedTeam/main/src/redteam_core/challenge_pool/active_challenges.yaml"
+    },
+    {
+      "auth_required": false,
+      "authority": "community",
+      "id": "sn-61-redteam-openapi",
+      "kind": "openapi",
+      "name": "RedTeam Device Fingerprinter Gate OpenAPI spec",
+      "notes": "Machine-readable OpenAPI 3.1 spec (title: Device Fingerprinter Gate) served from the official RedTeamSubnet/rest-dfp-proxy repository (homepage www.theredteam.io); documents the REST proxy that gates the dev_fingerprinter challenge defined in the subnet's RedTeamSubnet/RedTeam source repository.",
+      "provider": "redteam",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "cleanjunc"
+      },
+      "schema_status": "machine-readable",
+      "schema_url": "https://raw.githubusercontent.com/RedTeamSubnet/rest-dfp-proxy/main/docs/pages/api-docs/openapi.json",
+      "source_urls": [
+        "https://github.com/RedTeamSubnet/rest-dfp-proxy",
+        "https://github.com/RedTeamSubnet/RedTeam/blob/main/docs/challenges/dev_fingerprinter/README.md"
+      ],
+      "url": "https://raw.githubusercontent.com/RedTeamSubnet/rest-dfp-proxy/main/docs/pages/api-docs/openapi.json"
     }
   ],
   "contact": "oscar@theredteam.io"
