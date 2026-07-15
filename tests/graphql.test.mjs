@@ -5485,6 +5485,188 @@ describe("graphql — account_stake_moves (#5707, Postgres-tier + zeroed-card fa
   });
 });
 
+describe("graphql — account_identity_history (#5709, Postgres-tier + D1-live fallback)", () => {
+  const SS58 = "5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty";
+
+  function historyQuery(argsClause) {
+    return `{ account_identity_history${argsClause} {
+      schema_version account entry_count limit offset next_cursor
+      entries { observed_at name url github image discord description additional identity_hash }
+    } }`;
+  }
+
+  // loadAccountIdentityHistory issues exactly one SELECT per call (no
+  // two-query branching like chain_weight_setters), so the mock ignores the
+  // SQL text and always returns the given rows.
+  function accountIdentityHistoryD1(rows = []) {
+    return {
+      prepare: () => ({
+        bind: () => ({ all: async () => ({ results: rows }) }),
+      }),
+    };
+  }
+
+  test("cold store, default args: schema-stable empty timeline, never null", async () => {
+    const { status, body } = await gql(historyQuery(`(ss58: "${SS58}")`));
+    assert.equal(status, 200);
+    assert.equal(body.errors, undefined);
+    assert.deepEqual(body.data.account_identity_history, {
+      schema_version: 1,
+      account: SS58,
+      entry_count: 0,
+      limit: 100,
+      offset: 0,
+      next_cursor: null,
+      entries: [],
+    });
+  });
+
+  test("resolves Postgres-tier data as-is, forwarding limit/offset/cursor as query params", async () => {
+    let capturedUrl;
+    const env = {
+      METAGRAPH_ACCOUNT_IDENTITY_SOURCE: "postgres",
+      DATA_API: {
+        fetch: async (r) => {
+          capturedUrl = new URL(r.url);
+          return Response.json({
+            schema_version: 1,
+            account: SS58,
+            entry_count: 1,
+            limit: 5,
+            offset: 10,
+            next_cursor: null,
+            entries: [
+              {
+                observed_at: "2026-07-10T00:00:00.000Z",
+                name: "Example",
+                url: "https://example.com",
+                github: "example",
+                image: null,
+                discord: null,
+                description: null,
+                additional: null,
+                identity_hash: "abc123",
+              },
+            ],
+          });
+        },
+      },
+    };
+    const { status, body } = await gql(
+      historyQuery(`(ss58: "${SS58}", limit: 5, offset: 10, cursor: "xyz")`),
+      env,
+    );
+    assert.equal(status, 200);
+    assert.equal(
+      capturedUrl.pathname,
+      `/api/v1/accounts/${SS58}/identity-history`,
+    );
+    assert.equal(capturedUrl.searchParams.get("limit"), "5");
+    assert.equal(capturedUrl.searchParams.get("offset"), "10");
+    assert.equal(capturedUrl.searchParams.get("cursor"), "xyz");
+    assert.equal(body.data.account_identity_history.entry_count, 1);
+    assert.equal(body.data.account_identity_history.entries[0].name, "Example");
+    assert.equal(
+      body.data.account_identity_history.entries[0].identity_hash,
+      "abc123",
+    );
+  });
+
+  test("a bare Postgres-tier response ({}) still resolves schema-stable defaults", async () => {
+    const env = {
+      METAGRAPH_ACCOUNT_IDENTITY_SOURCE: "postgres",
+      DATA_API: { fetch: async () => Response.json({}) },
+    };
+    const { status, body } = await gql(historyQuery(`(ss58: "${SS58}")`), env);
+    assert.equal(status, 200);
+    assert.deepEqual(body.data.account_identity_history, {
+      schema_version: 1,
+      account: SS58,
+      entry_count: 0,
+      limit: null,
+      offset: null,
+      next_cursor: null,
+      entries: [],
+    });
+  });
+
+  test("an entry missing observed_at/name/identity_hash resolves those fields as null", async () => {
+    const env = {
+      METAGRAPH_ACCOUNT_IDENTITY_SOURCE: "postgres",
+      DATA_API: { fetch: async () => Response.json({ entries: [{}] }) },
+    };
+    const { status, body } = await gql(historyQuery(`(ss58: "${SS58}")`), env);
+    assert.equal(status, 200);
+    assert.deepEqual(body.data.account_identity_history.entries, [
+      {
+        observed_at: null,
+        name: null,
+        url: null,
+        github: null,
+        image: null,
+        discord: null,
+        description: null,
+        additional: null,
+        identity_hash: null,
+      },
+    ]);
+  });
+
+  test("no Postgres tier flag: reads the diff-tracked timeline straight off D1", async () => {
+    const env = {
+      METAGRAPH_HEALTH_DB: accountIdentityHistoryD1([
+        {
+          id: 2,
+          observed_at: 1_750_000_000_000,
+          name: "Example",
+          url: "https://example.com",
+          github: "example",
+          image: null,
+          discord: null,
+          description: null,
+          additional: null,
+          identity_hash: "abc123",
+        },
+      ]),
+    };
+    const { status, body } = await gql(historyQuery(`(ss58: "${SS58}")`), env);
+    assert.equal(status, 200);
+    assert.equal(body.data.account_identity_history.account, SS58);
+    assert.equal(body.data.account_identity_history.entry_count, 1);
+    assert.equal(body.data.account_identity_history.entries[0].name, "Example");
+    assert.equal(
+      body.data.account_identity_history.entries[0].identity_hash,
+      "abc123",
+    );
+    assert.ok(body.data.account_identity_history.entries[0].observed_at);
+  });
+
+  test("a D1 query error degrades to a schema-stable empty timeline (no throw)", async () => {
+    const env = {
+      METAGRAPH_HEALTH_DB: {
+        prepare() {
+          throw new Error("db unavailable");
+        },
+      },
+    };
+    const { status, body } = await gql(historyQuery(`(ss58: "${SS58}")`), env);
+    assert.equal(status, 200);
+    assert.equal(body.data.account_identity_history.entry_count, 0);
+    assert.deepEqual(body.data.account_identity_history.entries, []);
+  });
+
+  test("an invalid ss58 is a GraphQL error, not a silent empty timeline", async () => {
+    const { body } = await gql(historyQuery('(ss58: "not-an-address")'));
+    assert.ok(body.errors, "expected a GraphQL error");
+    assert.ok(/ss58/i.test(body.errors[0].message));
+    assert.equal(body.data?.account_identity_history ?? null, null);
+  });
+
+  test("account_identity_history is weighted as a relationship field", () => {
+    assert.equal(FIELD_COMPLEXITY.account_identity_history, 5);
+  });
+});
+
 describe("graphql — economics_trends (#5663, Postgres-tier + D1-fallback time series)", () => {
   function dataApi(response) {
     return { fetch: async () => response };

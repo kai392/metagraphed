@@ -43,6 +43,7 @@ import { buildSubnetYield } from "./subnet-yield.mjs";
 import { buildSubnetPerformance } from "./subnet-performance.mjs";
 import {
   analyticsWindow,
+  d1Runner,
   loadGlobalIncidentsLedger,
 } from "../workers/request-handlers/analytics.mjs";
 import {
@@ -126,6 +127,7 @@ import {
   ACCOUNT_STAKE_MOVES_WINDOWS,
   DEFAULT_ACCOUNT_STAKE_MOVES_WINDOW,
 } from "./account-stake-moves.mjs";
+import { loadAccountIdentityHistory } from "./account-identity-history.mjs";
 import { KV_HEALTH_META } from "./kv-keys.mjs";
 import { SS58_ADDRESS_PATTERN } from "../workers/config.mjs";
 import {
@@ -257,6 +259,8 @@ export const SDL = `
     account_axon_removals(ss58: String!, window: String): AccountAxonRemovals!
     "One account's per-subnet StakeMoved footprint over a 7d/30d/90d window (default 30d): movement count, first/last timestamps, and the alpha price (TAO) at its most recent move per subnet, an HHI concentration of where its re-delegation churn is focused, and the dominant subnet; an address with no moves in the window resolves to a schema-stable zeroed card, never null. Mirrors GET /api/v1/accounts/{ss58}/stake-moves."
     account_stake_moves(ss58: String!, window: String): AccountStakeMoves!
+    "One account's on-chain identity change history, newest first -- an append-only diff-tracking timeline (name/url/github/image/discord/description/additional plus a stable hash per entry). Page with limit/offset or cursor (opaque keyset from a prior response's next_cursor). An address with no identity-history rows resolves to a schema-stable empty timeline, never null. Mirrors GET /api/v1/accounts/{ss58}/identity-history."
+    account_identity_history(ss58: String!, limit: Int, offset: Int, cursor: String): AccountIdentityHistory!
     "Network-wide economics time series, aggregated per UTC day across all subnets; day_count is 0 and days is empty on a cold rollup, never null. Mirrors GET /api/v1/economics/trends."
     economics_trends(window: String): EconomicsTrends!
     "Cross-subnet momentum leaderboard: every subnet ranked by its stake/emission/validator change between a window's start and end snapshots; movers is empty on a cold or single-snapshot store, never null. Mirrors GET /api/v1/subnets/movers."
@@ -1303,6 +1307,30 @@ export const SDL = `
     subnets: [AccountStakeMoveSubnet!]!
   }
 
+  "One diff-tracked snapshot of an account's on-chain identity, taken when any tracked field changed since the previous entry."
+  type AccountIdentityHistoryEntry {
+    observed_at: String
+    name: String
+    url: String
+    github: String
+    image: String
+    discord: String
+    description: String
+    additional: String
+    "Stable hash of this entry's tracked identity fields -- unchanged across entries where nothing actually differs."
+    identity_hash: String
+  }
+
+  type AccountIdentityHistory {
+    schema_version: Int!
+    account: String!
+    entry_count: Int!
+    limit: Int
+    offset: Int
+    next_cursor: String
+    entries: [AccountIdentityHistoryEntry!]!
+  }
+
   type AccountEvent {
     block_number: Int
     event_index: Int
@@ -1568,6 +1596,7 @@ export const FIELD_COMPLEXITY = {
   account_serving: RELATIONSHIP_FIELD_COMPLEXITY,
   account_axon_removals: RELATIONSHIP_FIELD_COMPLEXITY,
   account_stake_moves: RELATIONSHIP_FIELD_COMPLEXITY,
+  account_identity_history: RELATIONSHIP_FIELD_COMPLEXITY,
   blocks: RELATIONSHIP_FIELD_COMPLEXITY,
   subnet_registrations: RELATIONSHIP_FIELD_COMPLEXITY,
   subnet_deregistrations: RELATIONSHIP_FIELD_COMPLEXITY,
@@ -3252,6 +3281,59 @@ const rootValue = {
         first_moved_at: s.first_moved_at ?? null,
         last_moved_at: s.last_moved_at ?? null,
         price_tao_at_last_move: s.price_tao_at_last_move ?? null,
+      })),
+    };
+  },
+
+  async account_identity_history({ ss58, limit, offset, cursor }, context) {
+    // Same SS58 validation every account_* resolver uses -- a malformed
+    // address is a GraphQL BAD_USER_INPUT error, not a silent empty timeline.
+    if (!SS58_ADDRESS_PATTERN.test(ss58)) {
+      throw new GraphQLError("ss58 must be a valid SS58 address.", {
+        extensions: { code: "BAD_USER_INPUT" },
+      });
+    }
+    // Same tryPostgresTier(METAGRAPH_ACCOUNT_IDENTITY_SOURCE) -> D1
+    // (loadAccountIdentityHistory) fallback handleAccountIdentityHistory uses,
+    // forwarding limit/offset/cursor as query params -- an address with no
+    // identity-history rows is a schema-stable empty timeline, never a
+    // GraphQL error.
+    const params = new URLSearchParams();
+    if (limit != null) params.set("limit", String(limit));
+    if (offset != null) params.set("offset", String(offset));
+    if (cursor != null) params.set("cursor", cursor);
+    const data =
+      (await tryPostgresTier(
+        context.env,
+        postgresTierRequest(
+          context,
+          `/api/v1/accounts/${encodeURIComponent(ss58)}/identity-history`,
+          params,
+        ),
+        "METAGRAPH_ACCOUNT_IDENTITY_SOURCE",
+      )) ??
+      (await loadAccountIdentityHistory(d1Runner(context.env), ss58, {
+        limit,
+        offset,
+        cursor,
+      }));
+    return {
+      schema_version: data.schema_version ?? 1,
+      account: data.account ?? ss58,
+      entry_count: data.entry_count ?? 0,
+      limit: data.limit ?? null,
+      offset: data.offset ?? null,
+      next_cursor: data.next_cursor ?? null,
+      entries: (data.entries ?? []).map((e) => ({
+        observed_at: e.observed_at ?? null,
+        name: e.name ?? null,
+        url: e.url ?? null,
+        github: e.github ?? null,
+        image: e.image ?? null,
+        discord: e.discord ?? null,
+        description: e.description ?? null,
+        additional: e.additional ?? null,
+        identity_hash: e.identity_hash ?? null,
       })),
     };
   },
