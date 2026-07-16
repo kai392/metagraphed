@@ -1,15 +1,21 @@
 // Typed PostHog usage-event wrapper for the Worker backend (#6030 / #366).
 //
 // Single chokepoint for product-usage capture: callers pass an allowlisted
-// UsageEvent; this module owns the PostHog event name/properties and the
-// Workers-safe client lifecycle (flushAt:1, captureImmediate, shutdown).
+// UsageEvent; this module owns the PostHog event name/properties and posts
+// them straight to PostHog's public capture API with fetch.
 // Nothing outside this file should construct a raw PostHog event.
 //
+// This module deliberately does NOT import `posthog-node`. That SDK is built
+// for long-lived Node servers (batching, flush intervals, shutdown draining) —
+// none of which survives a Workers isolate anyway — and it costs ~40 KiB
+// gzipped in the bundle. The Worker entry is already within a few KiB of
+// Cloudflare's 1 MiB script limit (scripts/worker-bundle-budget.mjs), so
+// importing it here pushes the deployable bundle past the limit outright.
+// One fetch to the documented capture endpoint does the same job at zero
+// bundle cost, and fetch is the platform-native transport here.
+//
 // Safe no-op when POSTHOG_PROJECT_TOKEN is unset — self-hosters / local / CI
-// see zero behavior change. Never throws. Not wired into request or MCP
-// dispatch yet (#6031 / #6032 are the callers).
-
-import { PostHog } from "posthog-node";
+// see zero behavior change. Never throws.
 
 /** Env var holding the PostHog project API token (wrangler secret). */
 export const POSTHOG_PROJECT_TOKEN_ENV = "POSTHOG_PROJECT_TOKEN";
@@ -36,9 +42,12 @@ const MAX_LABEL_CHARS = 256;
  * @property {number} durationMs Wall-clock duration in milliseconds (>= 0).
  */
 
+/** Public capture endpoint, appended to the resolved PostHog host. */
+export const POSTHOG_CAPTURE_PATH = "/i/v0/e/";
+
 /**
  * @typedef {object} RecordUsageEventDeps
- * @property {typeof PostHog} [PostHog] Injectable client class (tests).
+ * @property {typeof fetch} [fetch] Injectable fetch (tests).
  * @property {string} [distinctId] Override distinct_id (tests).
  */
 
@@ -102,42 +111,28 @@ export async function recordUsageEvent(env, event, deps = {}) {
     const properties = usageEventProperties(event);
     if (!properties) return false;
 
-    const Client = postHogClientClass(deps);
-    const token = String(env[POSTHOG_PROJECT_TOKEN_ENV]).trim();
-    const host = resolvePostHogHost(env);
+    const doFetch = deps.fetch ?? globalThis.fetch;
+    const response = await doFetch(
+      `${resolvePostHogHost(env)}${POSTHOG_CAPTURE_PATH}`,
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          api_key: String(env[POSTHOG_PROJECT_TOKEN_ENV]).trim(),
+          event: USAGE_EVENT_NAME,
+          distinct_id: deps.distinctId ?? USAGE_EVENT_DISTINCT_ID,
+          properties,
+        }),
+      },
+    );
 
-    const client = new Client(token, {
-      host,
-      // Workers isolates can freeze the moment the response returns — never
-      // batch; flush each capture immediately (PostHog Workers docs).
-      flushAt: 1,
-      flushInterval: 0,
-    });
-
-    try {
-      await client.captureImmediate({
-        distinctId: deps.distinctId ?? USAGE_EVENT_DISTINCT_ID,
-        event: USAGE_EVENT_NAME,
-        properties,
-      });
-    } finally {
-      // Always drain pending work so a capture isn't stranded on isolate exit.
-      await client.shutdown().catch(() => {});
-    }
-    return true;
+    // A rejected capture is PostHog's problem, not the request's — report it
+    // as not-recorded rather than throwing.
+    return response?.ok === true;
   } catch {
     // Telemetry must never surface into the request/tool path.
     return false;
   }
-}
-
-/**
- * PostHog client class — injectable for tests, defaults to posthog-node.
- * @param {RecordUsageEventDeps} [deps]
- * @returns {typeof PostHog}
- */
-export function postHogClientClass(deps = {}) {
-  return deps.PostHog ?? PostHog;
 }
 
 /**
