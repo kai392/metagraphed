@@ -13,7 +13,6 @@ import { Route as SurfacesRouteImport } from './routes/surfaces'
 import { Route as StatusRouteImport } from './routes/status'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as SchemasRouteImport } from './routes/schemas'
-import { Route as RpcRouteImport } from './routes/rpc'
 import { Route as LeaderboardsRouteImport } from './routes/leaderboards'
 import { Route as HealthRouteImport } from './routes/health'
 import { Route as GapsRouteImport } from './routes/gaps'
@@ -62,11 +61,6 @@ const SettingsRoute = SettingsRouteImport.update({
 const SchemasRoute = SchemasRouteImport.update({
   id: '/schemas',
   path: '/schemas',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RpcRoute = RpcRouteImport.update({
-  id: '/rpc',
-  path: '/rpc',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LeaderboardsRoute = LeaderboardsRouteImport.update({
@@ -225,7 +219,6 @@ export interface FileRoutesByFullPath {
   '/gaps': typeof GapsRoute
   '/health': typeof HealthRoute
   '/leaderboards': typeof LeaderboardsRoute
-  '/rpc': typeof RpcRoute
   '/schemas': typeof SchemasRoute
   '/settings': typeof SettingsRoute
   '/status': typeof StatusRoute
@@ -261,7 +254,6 @@ export interface FileRoutesByTo {
   '/gaps': typeof GapsRoute
   '/health': typeof HealthRoute
   '/leaderboards': typeof LeaderboardsRoute
-  '/rpc': typeof RpcRoute
   '/schemas': typeof SchemasRoute
   '/settings': typeof SettingsRoute
   '/status': typeof StatusRoute
@@ -298,7 +290,6 @@ export interface FileRoutesById {
   '/gaps': typeof GapsRoute
   '/health': typeof HealthRoute
   '/leaderboards': typeof LeaderboardsRoute
-  '/rpc': typeof RpcRoute
   '/schemas': typeof SchemasRoute
   '/settings': typeof SettingsRoute
   '/status': typeof StatusRoute
@@ -336,7 +327,6 @@ export interface FileRouteTypes {
     | '/gaps'
     | '/health'
     | '/leaderboards'
-    | '/rpc'
     | '/schemas'
     | '/settings'
     | '/status'
@@ -372,7 +362,6 @@ export interface FileRouteTypes {
     | '/gaps'
     | '/health'
     | '/leaderboards'
-    | '/rpc'
     | '/schemas'
     | '/settings'
     | '/status'
@@ -408,7 +397,6 @@ export interface FileRouteTypes {
     | '/gaps'
     | '/health'
     | '/leaderboards'
-    | '/rpc'
     | '/schemas'
     | '/settings'
     | '/status'
@@ -445,7 +433,6 @@ export interface RootRouteChildren {
   GapsRoute: typeof GapsRoute
   HealthRoute: typeof HealthRoute
   LeaderboardsRoute: typeof LeaderboardsRoute
-  RpcRoute: typeof RpcRoute
   SchemasRoute: typeof SchemasRoute
   SettingsRoute: typeof SettingsRoute
   StatusRoute: typeof StatusRoute
@@ -500,13 +487,6 @@ declare module '@tanstack/react-router' {
       path: '/schemas'
       fullPath: '/schemas'
       preLoaderRoute: typeof SchemasRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/rpc': {
-      id: '/rpc'
-      path: '/rpc'
-      fullPath: '/rpc'
-      preLoaderRoute: typeof RpcRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/leaderboards': {
@@ -725,7 +705,6 @@ const rootRouteChildren: RootRouteChildren = {
   GapsRoute: GapsRoute,
   HealthRoute: HealthRoute,
   LeaderboardsRoute: LeaderboardsRoute,
-  RpcRoute: RpcRoute,
   SchemasRoute: SchemasRoute,
   SettingsRoute: SettingsRoute,
   StatusRoute: StatusRoute,
