@@ -18,7 +18,7 @@ const KIB = 1024;
 
 // Cloudflare's hard ceiling is 1 MiB (1024 KiB) gzipped. Warn early, fail before
 // the ceiling so a regression is caught at PR time rather than at deploy. The
-// bundle has grown past the original 980 KiB then 1000 KiB fail-lines as more
+// bundle has grown past the original 980 → 1000 → 1008 KiB fail-lines as more
 // live routes and GraphQL parity fields landed while staying well under the
 // 1024 KiB deploy limit. The GitHub Actions runner's toolchain produces a
 // consistently larger gzip output than a local build of the same commit (observed:
