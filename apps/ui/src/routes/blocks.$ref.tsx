@@ -17,6 +17,7 @@ import {
   SectionAnchor,
   StatTile,
   TableState,
+  DownloadCsvButton,
 } from "@jsonbored/ui-kit";
 import { QueryErrorBoundary } from "@/components/metagraphed/error-boundary";
 import {
@@ -26,6 +27,7 @@ import {
   blockQuery,
 } from "@/lib/metagraphed/queries";
 import { formatNumber } from "@/lib/metagraphed/format";
+import { buildUrl } from "@/lib/metagraphed/client";
 import { blockRefPathSegment, isValidBlockRef, shortHash } from "@/lib/metagraphed/blocks";
 import { extrinsicCall } from "@/lib/metagraphed/extrinsics";
 import { formatChainEventArgs } from "@/lib/metagraphed/chain-event-args";
@@ -297,7 +299,12 @@ function ValidBlockDetail({ refValue }: { refValue: string }) {
         </dl>
       </SectionAnchor>
 
-      <SectionAnchor id="extrinsics" title="Extrinsics" tone="accent">
+      <SectionAnchor
+        id="extrinsics"
+        title="Extrinsics"
+        tone="accent"
+        right={<DownloadCsvButton url={buildUrl(`/api/v1/blocks/${sourceRef}/extrinsics`)} />}
+      >
         {extrinsicsQuery.isPending ? (
           <Skeleton className="h-44" />
         ) : extrinsicsQuery.error ? (
@@ -385,7 +392,12 @@ function ValidBlockDetail({ refValue }: { refValue: string }) {
         )}
       </SectionAnchor>
 
-      <SectionAnchor id="events" title="Events" tone="accent">
+      <SectionAnchor
+        id="events"
+        title="Events"
+        tone="accent"
+        right={<DownloadCsvButton url={buildUrl(`/api/v1/blocks/${sourceRef}/events`)} />}
+      >
         {eventsQuery.isPending ? (
           <Skeleton className="h-44" />
         ) : eventsQuery.error ? (
