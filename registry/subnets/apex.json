@@ -187,6 +187,8 @@
         "state": "community-submitted",
         "submitted_by": "bohdansolovie"
       },
+      "schema_status": "machine-readable",
+      "schema_url": "https://apex.api.macrocosmos.ai/openapi.json",
       "source_urls": [
         "https://github.com/macrocosm-os/apex/blob/main/shared/common/src/common/settings.py",
         "https://apex.api.macrocosmos.ai/openapi.json"
