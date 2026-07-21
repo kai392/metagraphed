@@ -4040,6 +4040,11 @@ test("GET /api/v1/subnets/:netuid/event-summary shapes kind/category aggregates 
     "GROUP BY event_kind ORDER BY event_count DESC",
   );
   expect(queryText()).toContain("AND coldkey IS NOT NULL");
+  // METAGRAPHED-6 leftover: recent-slice must lead ORDER BY with observed_at
+  // so Timescale can chunk-prune under LIMIT (#7255 missed this site).
+  expect(queryText()).toContain(
+    "ORDER BY observed_at DESC, block_number DESC, event_index DESC LIMIT",
+  );
 });
 
 test("GET /api/v1/subnets/:netuid/event-summary defaults the window when absent", async () => {

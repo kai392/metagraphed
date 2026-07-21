@@ -74,6 +74,8 @@ import {
   subnetWeightsQuery,
   subnetIdentityHistoryQuery,
   subnetStakeFlowQuery,
+  subnetEventSummaryQuery,
+  subnetAxonRemovalsQuery,
   subnetHyperparametersQuery,
   subnetHyperparamsHistoryQuery,
   subnetAlphaVolumeQuery,
@@ -1015,6 +1017,84 @@ function StakeFlowScorecard({ netuid }: { netuid: number }) {
   );
 }
 
+/**
+ * #7000: windowed event-summary + axon-removals rollup above the raw Activity
+ * table — a quick-glance complement to StakeFlowScorecard / ActivityTableLoader,
+ * not a replacement. Percentiles and recycled TAO already live on Reliability /
+ * Economics; this fills the Activity-tab gap the issue called out.
+ */
+function ActivityEventRollup({ netuid }: { netuid: number }) {
+  const { data: summaryRes, isPending: summaryPending, isError: summaryError } = useQuery(
+    subnetEventSummaryQuery(netuid),
+  );
+  const { data: axonRes, isPending: axonPending, isError: axonError } = useQuery(
+    subnetAxonRemovalsQuery(netuid),
+  );
+  const summary = summaryRes?.data;
+  const axon = axonRes?.data;
+  const topCategories = [...(summary?.categories ?? [])]
+    .sort((a, b) => b.event_count - a.event_count)
+    .slice(0, 3);
+  const categoryHint = topCategories.length
+    ? topCategories.map((c) => `${formatNumber(c.event_count)} ${c.category}`).join(" · ")
+    : "by category";
+  const windowLabel = summary?.window ?? axon?.window ?? "7d";
+  const totalEvents =
+    summaryError ? "—" : summaryPending && !summary ? "…" : formatNumber(summary?.total_events ?? 0);
+  const kindCount =
+    summaryError ? "—" : summaryPending && !summary ? "…" : formatNumber(summary?.kind_count ?? 0);
+  const categoryCount =
+    summaryError
+      ? "—"
+      : summaryPending && !summary
+        ? "…"
+        : formatNumber(summary?.category_count ?? 0);
+  const removals =
+    axonError ? "—" : axonPending && !axon ? "…" : formatNumber(axon?.removals ?? 0);
+  const removers = axon?.distinct_removers ?? 0;
+
+  return (
+    <div className="mb-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <StatTile
+        icon={Activity}
+        eyebrow={`Events · ${windowLabel}`}
+        value={totalEvents}
+        hint={categoryHint}
+      />
+      <StatTile
+        icon={Filter}
+        eyebrow="Event kinds"
+        value={kindCount}
+        hint={`${categoryCount} categories`}
+      />
+      <StatTile
+        icon={AlertTriangle}
+        eyebrow={`Axon removals · ${axon?.window ?? "30d"}`}
+        value={removals}
+        hint={
+          axonError
+            ? "axon-removals unavailable"
+            : `${formatNumber(removers)} distinct ${removers === 1 ? "remover" : "removers"}`
+        }
+      />
+      <StatTile
+        icon={Waves}
+        eyebrow="Avg removals / remover"
+        value={
+          axonError
+            ? "—"
+            : axonPending && !axon
+              ? "…"
+              : axon?.removals_per_remover == null
+                ? "—"
+                : axon.removals_per_remover.toFixed(2)
+        }
+        hint="AxonInfoRemoved window average"
+      />
+    </div>
+  );
+}
+
 function ActivityPanel({ netuid }: { netuid: number }) {
   const { ev_kind } = Route.useSearch();
   const navigate = Route.useNavigate();
@@ -1037,6 +1117,7 @@ function ActivityPanel({ netuid }: { netuid: number }) {
       }
     >
       <StakeFlowScorecard netuid={netuid} />
+      <ActivityEventRollup netuid={netuid} />
       <QueryErrorBoundary>
         <Suspense fallback={<Skeleton className="h-32 w-full" />}>
           <ActivityTableLoader netuid={netuid} kind={ev_kind} />

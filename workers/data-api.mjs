@@ -5410,10 +5410,16 @@ export default {
             ...row,
             coldkey_count: coldkeyCountByKind.get(row.event_kind) ?? 0,
           }));
+          // METAGRAPHED-6 leftover from #7255: account_events is a Timescale
+          // hypertable on observed_at. Leading ORDER BY with observed_at lets
+          // ChunkAppend prune to the live chunk under LIMIT — the same pattern
+          // /subnets/:netuid/events already uses. Ordering by block_number alone
+          // still statement-timeouts under load; tryPostgresTier then returns an
+          // empty summary (200) and the Activity rollup dashes out.
           const recentRows = await sql`
           SELECT block_number, event_index, extrinsic_index, event_kind, hotkey, coldkey, netuid, uid, amount_tao, alpha_amount, observed_at
           FROM account_events WHERE netuid = ${netuid} AND observed_at >= ${cutoff}
-          ORDER BY block_number DESC, event_index DESC LIMIT ${limit}`;
+          ORDER BY observed_at DESC, block_number DESC, event_index DESC LIMIT ${limit}`;
           return json(
             buildSubnetEventSummary(
               kindRowsWithColdkeyCount,
