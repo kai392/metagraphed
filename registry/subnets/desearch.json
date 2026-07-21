@@ -325,6 +325,1091 @@
         "https://www.desearch.ai/openapi.json"
       ],
       "url": "https://api.desearch.ai/health"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-post-desearch-ai-search",
+      "kind": "subnet-api",
+      "name": "Desearch AI Contextual Search",
+      "notes": "Auth-gated POST /desearch/ai/search on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/desearch/ai/search"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-post-desearch-ai-search-links-twitter",
+      "kind": "subnet-api",
+      "name": "Desearch AI \u0425 Posts Search",
+      "notes": "Auth-gated POST /desearch/ai/search/links/twitter on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/desearch/ai/search/links/twitter"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-post-desearch-ai-search-links-web",
+      "kind": "subnet-api",
+      "name": "Desearch AI Web Search",
+      "notes": "Auth-gated POST /desearch/ai/search/links/web on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/desearch/ai/search/links/web"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-get-desearch-facebook-comments-post-id",
+      "kind": "subnet-api",
+      "name": "Desearch Retrieve Facebook Comments",
+      "notes": "Auth-gated GET /desearch/facebook/comments/{post_id} on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false; path-parameterized template. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/desearch/facebook/comments/%7Bpost_id%7D"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-get-desearch-facebook-hashtag-tag",
+      "kind": "subnet-api",
+      "name": "Desearch Retrieve Facebook Hashtag Posts",
+      "notes": "Auth-gated GET /desearch/facebook/hashtag/{tag} on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false; path-parameterized template. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/desearch/facebook/hashtag/%7Btag%7D"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-get-desearch-facebook-post-id",
+      "kind": "subnet-api",
+      "name": "Desearch Retrieve Facebook Post by ID",
+      "notes": "Auth-gated GET /desearch/facebook/post/{id} on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false; path-parameterized template. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/desearch/facebook/post/%7Bid%7D"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-get-desearch-facebook-profile-profile-id",
+      "kind": "subnet-api",
+      "name": "Desearch Retrieve Facebook Profile or Page",
+      "notes": "Auth-gated GET /desearch/facebook/profile/{profile_id} on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false; path-parameterized template. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/desearch/facebook/profile/%7Bprofile_id%7D"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-get-desearch-facebook-profile-profile-id-posts",
+      "kind": "subnet-api",
+      "name": "Desearch Retrieve Facebook Profile/Page Posts",
+      "notes": "Auth-gated GET /desearch/facebook/profile/{profile_id}/posts on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false; path-parameterized template. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/desearch/facebook/profile/%7Bprofile_id%7D/posts"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-post-desearch-facebook-search",
+      "kind": "subnet-api",
+      "name": "Desearch Facebook Search API",
+      "notes": "Auth-gated POST /desearch/facebook/search on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/desearch/facebook/search"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-get-desearch-instagram-comments-media-id",
+      "kind": "subnet-api",
+      "name": "Desearch Retrieve Instagram Comments",
+      "notes": "Auth-gated GET /desearch/instagram/comments/{media_id} on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false; path-parameterized template. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/desearch/instagram/comments/%7Bmedia_id%7D"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-get-desearch-instagram-hashtag-tag",
+      "kind": "subnet-api",
+      "name": "Desearch Retrieve Instagram Hashtag Media",
+      "notes": "Auth-gated GET /desearch/instagram/hashtag/{tag} on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false; path-parameterized template. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/desearch/instagram/hashtag/%7Btag%7D"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-get-desearch-instagram-media-id",
+      "kind": "subnet-api",
+      "name": "Desearch Retrieve Instagram Media by ID",
+      "notes": "Auth-gated GET /desearch/instagram/media/{id} on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false; path-parameterized template. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/desearch/instagram/media/%7Bid%7D"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-get-desearch-instagram-profile-username",
+      "kind": "subnet-api",
+      "name": "Desearch Retrieve Instagram Profile",
+      "notes": "Auth-gated GET /desearch/instagram/profile/{username} on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false; path-parameterized template. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/desearch/instagram/profile/%7Busername%7D"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-get-desearch-instagram-profile-username-posts",
+      "kind": "subnet-api",
+      "name": "Desearch Retrieve Instagram Profile Posts",
+      "notes": "Auth-gated GET /desearch/instagram/profile/{username}/posts on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false; path-parameterized template. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/desearch/instagram/profile/%7Busername%7D/posts"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-post-desearch-instagram-search",
+      "kind": "subnet-api",
+      "name": "Desearch Instagram Search API",
+      "notes": "Auth-gated POST /desearch/instagram/search on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/desearch/instagram/search"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-get-desearch-tiktok-comments-video-id",
+      "kind": "subnet-api",
+      "name": "Desearch Retrieve TikTok Comments",
+      "notes": "Auth-gated GET /desearch/tiktok/comments/{video_id} on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false; path-parameterized template. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/desearch/tiktok/comments/%7Bvideo_id%7D"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-get-desearch-tiktok-hashtag-tag",
+      "kind": "subnet-api",
+      "name": "Desearch Retrieve TikTok Hashtag Posts",
+      "notes": "Auth-gated GET /desearch/tiktok/hashtag/{tag} on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false; path-parameterized template. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/desearch/tiktok/hashtag/%7Btag%7D"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-get-desearch-tiktok-post-id",
+      "kind": "subnet-api",
+      "name": "Desearch Retrieve TikTok Post by ID",
+      "notes": "Auth-gated GET /desearch/tiktok/post/{id} on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false; path-parameterized template. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/desearch/tiktok/post/%7Bid%7D"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-get-desearch-tiktok-profile-username",
+      "kind": "subnet-api",
+      "name": "Desearch Retrieve TikTok Profile",
+      "notes": "Auth-gated GET /desearch/tiktok/profile/{username} on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false; path-parameterized template. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/desearch/tiktok/profile/%7Busername%7D"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-get-desearch-tiktok-profile-username-posts",
+      "kind": "subnet-api",
+      "name": "Desearch Retrieve TikTok Profile Posts",
+      "notes": "Auth-gated GET /desearch/tiktok/profile/{username}/posts on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false; path-parameterized template. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/desearch/tiktok/profile/%7Busername%7D/posts"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-post-desearch-tiktok-search",
+      "kind": "subnet-api",
+      "name": "Desearch TikTok Search API",
+      "notes": "Auth-gated POST /desearch/tiktok/search on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/desearch/tiktok/search"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-get-desearch-tiktok-trending",
+      "kind": "subnet-api",
+      "name": "Desearch Retrieve TikTok Trending Posts",
+      "notes": "Auth-gated GET /desearch/tiktok/trending on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/desearch/tiktok/trending"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-post-numinous-forecasts",
+      "kind": "subnet-api",
+      "name": "Desearch Create Forecast Job",
+      "notes": "Auth-gated POST /numinous/forecasts on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/numinous/forecasts"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-get-numinous-forecasts-prediction-id",
+      "kind": "subnet-api",
+      "name": "Desearch Get Forecast Result",
+      "notes": "Auth-gated GET /numinous/forecasts/{prediction_id} on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false; path-parameterized template. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/numinous/forecasts/%7Bprediction_id%7D"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-get-twitter",
+      "kind": "subnet-api",
+      "name": "Desearch X Search API",
+      "notes": "Auth-gated GET /twitter on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/twitter"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-get-twitter-post",
+      "kind": "subnet-api",
+      "name": "Desearch Retrieve Post by ID",
+      "notes": "Auth-gated GET /twitter/post on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/twitter/post"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-get-twitter-post-retweeters",
+      "kind": "subnet-api",
+      "name": "Desearch Get Retweeters of a Post",
+      "notes": "Auth-gated GET /twitter/post/retweeters on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/twitter/post/retweeters"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-get-twitter-post-user",
+      "kind": "subnet-api",
+      "name": "Desearch Search X Posts by User",
+      "notes": "Auth-gated GET /twitter/post/user on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/twitter/post/user"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-get-twitter-replies",
+      "kind": "subnet-api",
+      "name": "Desearch Fetch User's Tweets and Replies",
+      "notes": "Auth-gated GET /twitter/replies on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/twitter/replies"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-get-twitter-replies-post",
+      "kind": "subnet-api",
+      "name": "Desearch Retrieve Replies for a Post",
+      "notes": "Auth-gated GET /twitter/replies/post on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/twitter/replies/post"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-get-twitter-trends",
+      "kind": "subnet-api",
+      "name": "Desearch Get X Trends",
+      "notes": "Auth-gated GET /twitter/trends on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/twitter/trends"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-get-twitter-urls",
+      "kind": "subnet-api",
+      "name": "Desearch Fetch Posts by URLs",
+      "notes": "Auth-gated GET /twitter/urls on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/twitter/urls"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-get-twitter-user-posts",
+      "kind": "subnet-api",
+      "name": "Desearch Get X Posts by Username",
+      "notes": "Auth-gated GET /twitter/user/posts on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/twitter/user/posts"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-get-web",
+      "kind": "subnet-api",
+      "name": "Desearch SERP Web Search API",
+      "notes": "Auth-gated GET /web on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/web"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "Authorization",
+        "scopes_note": "Derived from the subnet's own OpenAPI securitySchemes (ApiKeyAuth) \u2014 global security on api.desearch.ai/openapi.json."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-22-desearch-get-web-crawl",
+      "kind": "subnet-api",
+      "name": "Desearch Crawl API",
+      "notes": "Auth-gated GET /web/crawl on api.desearch.ai from the Desearch OpenAPI schema (global ApiKeyAuth). Register auth_required:true, probe.enabled:false. Live-verified 2026-07-21: anonymous GET /twitter -> HTTP 401 Unauthorized.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "desearch",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.desearch.ai/openapi.json",
+        "https://www.desearch.ai/openapi.json"
+      ],
+      "url": "https://api.desearch.ai/web/crawl"
     }
   ],
   "website_url": "https://www.desearch.ai/"
