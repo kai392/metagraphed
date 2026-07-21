@@ -278,6 +278,2732 @@
       },
       "source_urls": ["https://api.green-compute.com/openapi.json"],
       "url": "https://api.green-compute.com/_metrics"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-audit",
+      "kind": "subnet-api",
+      "name": "Green Compute List Audit",
+      "notes": "Auth-gated GET /audit/ on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/audit/"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-audit-download",
+      "kind": "subnet-api",
+      "name": "Green Compute Audit Download",
+      "notes": "Auth-gated GET /audit/download on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/audit/download"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-audit-miner-data",
+      "kind": "subnet-api",
+      "name": "Green Compute Audit Miner Data",
+      "notes": "Auth-gated POST /audit/miner_data on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/audit/miner_data"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-bounties",
+      "kind": "subnet-api",
+      "name": "Green Compute List Bounties",
+      "notes": "Auth-gated GET /bounties on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/bounties"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-e2e-instances-workload-id",
+      "kind": "subnet-api",
+      "name": "Green Compute E2E Instances",
+      "notes": "Auth-gated GET /e2e/instances/{workload_id} on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/e2e/instances/%7Bworkload_id%7D"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-e2e-invoke",
+      "kind": "subnet-api",
+      "name": "Green Compute E2E Invoke",
+      "notes": "Auth-gated POST /e2e/invoke on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/e2e/invoke"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-guess-vllm-config",
+      "kind": "subnet-api",
+      "name": "Green Compute Guess Vllm Config",
+      "notes": "Auth-gated GET /guess/vllm_config on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/guess/vllm_config"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-idp-authorize",
+      "kind": "subnet-api",
+      "name": "Green Compute Idp Authorize",
+      "notes": "Auth-gated GET /idp/authorize on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/idp/authorize"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-idp-scopes",
+      "kind": "subnet-api",
+      "name": "Green Compute Idp Scopes",
+      "notes": "Auth-gated GET /idp/scopes on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/idp/scopes"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-idp-token",
+      "kind": "subnet-api",
+      "name": "Green Compute Idp Token",
+      "notes": "Auth-gated POST /idp/token on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/idp/token"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-logos",
+      "kind": "subnet-api",
+      "name": "Green Compute Upload Logo",
+      "notes": "Auth-gated POST /logos on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/logos"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-logos-logo-id-ext",
+      "kind": "subnet-api",
+      "name": "Green Compute Get Logo",
+      "notes": "Auth-gated GET /logos/{logo_id}.{ext} on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/logos/%7Blogo_id%7D.%7Bext%7D"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-misc-hf-repo-info",
+      "kind": "subnet-api",
+      "name": "Green Compute Misc Hf Repo Info",
+      "notes": "Auth-gated GET /misc/hf_repo_info on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/misc/hf_repo_info"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-misc-proxy",
+      "kind": "subnet-api",
+      "name": "Green Compute Misc Proxy",
+      "notes": "Auth-gated GET /misc/proxy on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/misc/proxy"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-admin-analytics-active-rentals",
+      "kind": "subnet-api",
+      "name": "Green Compute Analytics Active Rentals",
+      "notes": "Auth-gated GET /platform/admin/analytics/active-rentals on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/admin/analytics/active-rentals"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-admin-analytics-gross-revenue",
+      "kind": "subnet-api",
+      "name": "Green Compute Analytics Gross Revenue",
+      "notes": "Auth-gated GET /platform/admin/analytics/gross-revenue on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/admin/analytics/gross-revenue"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-admin-analytics-revenue-by-miner",
+      "kind": "subnet-api",
+      "name": "Green Compute Analytics Revenue By Miner",
+      "notes": "Auth-gated GET /platform/admin/analytics/revenue-by-miner on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/admin/analytics/revenue-by-miner"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-admin-analytics-top-renters",
+      "kind": "subnet-api",
+      "name": "Green Compute Analytics Top Renters",
+      "notes": "Auth-gated GET /platform/admin/analytics/top-renters on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/admin/analytics/top-renters"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-admin-capacity-overrides",
+      "kind": "subnet-api",
+      "name": "Green Compute List Capacity Overrides",
+      "notes": "Auth-gated GET /platform/admin/capacity-overrides on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/admin/capacity-overrides"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-put-platform-admin-capacity-overrides-gpu-model",
+      "kind": "subnet-api",
+      "name": "Green Compute Upsert Capacity Override",
+      "notes": "Auth-gated PUT/DELETE /platform/admin/capacity-overrides/{gpu_model} on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template; 2 operations share this URL and are registered once.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/admin/capacity-overrides/%7Bgpu_model%7D"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-platform-api-keys",
+      "kind": "subnet-api",
+      "name": "Green Compute Create Api Key",
+      "notes": "Auth-gated POST/GET /platform/api-keys on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; 2 operations share this URL and are registered once.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/api-keys"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-api-keys-key-id",
+      "kind": "subnet-api",
+      "name": "Green Compute Get Api Key",
+      "notes": "Auth-gated GET/DELETE /platform/api-keys/{key_id} on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template; 2 operations share this URL and are registered once.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/api-keys/%7Bkey_id%7D"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-platform-billing-admin-credit",
+      "kind": "subnet-api",
+      "name": "Green Compute Billing Admin Credit",
+      "notes": "Auth-gated POST /platform/billing/admin/credit on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/billing/admin/credit"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-billing-admin-crypto-invoices",
+      "kind": "subnet-api",
+      "name": "Green Compute Billing Admin List Crypto Invoices",
+      "notes": "Auth-gated GET /platform/billing/admin/crypto/invoices on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/billing/admin/crypto/invoices"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-platform-billing-admin-debit",
+      "kind": "subnet-api",
+      "name": "Green Compute Billing Admin Debit",
+      "notes": "Auth-gated POST /platform/billing/admin/debit on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/billing/admin/debit"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-billing-admin-miner-revenue",
+      "kind": "subnet-api",
+      "name": "Green Compute Billing Admin Miner Revenue",
+      "notes": "Auth-gated GET /platform/billing/admin/miner-revenue on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/billing/admin/miner-revenue"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-billing-balance",
+      "kind": "subnet-api",
+      "name": "Green Compute Billing Balance",
+      "notes": "Auth-gated GET /platform/billing/balance on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/billing/balance"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-billing-crypto-invoices",
+      "kind": "subnet-api",
+      "name": "Green Compute Billing List Crypto Invoices",
+      "notes": "Auth-gated GET /platform/billing/crypto/invoices on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/billing/crypto/invoices"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-platform-billing-crypto-invoice-id-confirm",
+      "kind": "subnet-api",
+      "name": "Green Compute Billing Confirm Crypto",
+      "notes": "Auth-gated POST /platform/billing/crypto/{invoice_id}/confirm on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/billing/crypto/%7Binvoice_id%7D/confirm"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-platform-billing-crypto-invoice-id-reject",
+      "kind": "subnet-api",
+      "name": "Green Compute Billing Reject Crypto",
+      "notes": "Auth-gated POST /platform/billing/crypto/{invoice_id}/reject on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/billing/crypto/%7Binvoice_id%7D/reject"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-platform-billing-crypto-invoice-id-report-tx",
+      "kind": "subnet-api",
+      "name": "Green Compute Billing Report Crypto Tx",
+      "notes": "Auth-gated POST /platform/billing/crypto/{invoice_id}/report-tx on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/billing/crypto/%7Binvoice_id%7D/report-tx"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-billing-ledger",
+      "kind": "subnet-api",
+      "name": "Green Compute Billing Ledger",
+      "notes": "Auth-gated GET /platform/billing/ledger on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/billing/ledger"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-platform-billing-topup-crypto",
+      "kind": "subnet-api",
+      "name": "Green Compute Billing Topup Crypto",
+      "notes": "Auth-gated POST /platform/billing/topup/crypto on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/billing/topup/crypto"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-platform-billing-topup-stripe",
+      "kind": "subnet-api",
+      "name": "Green Compute Billing Topup Stripe",
+      "notes": "Auth-gated POST /platform/billing/topup/stripe on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/billing/topup/stripe"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-platform-billing-webhook-stripe",
+      "kind": "subnet-api",
+      "name": "Green Compute Billing Stripe Webhook",
+      "notes": "Auth-gated POST /platform/billing/webhook/stripe on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/billing/webhook/stripe"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-builds",
+      "kind": "subnet-api",
+      "name": "Green Compute List Build Attempts",
+      "notes": "Auth-gated GET /platform/builds on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/builds"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-platform-builds-recovery",
+      "kind": "subnet-api",
+      "name": "Green Compute Recover Build Jobs",
+      "notes": "Auth-gated POST /platform/builds/recovery on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/builds/recovery"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-builds-recovery-status",
+      "kind": "subnet-api",
+      "name": "Green Compute Build Recovery Status",
+      "notes": "Auth-gated GET /platform/builds/recovery/status on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/builds/recovery/status"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-builds-build-id",
+      "kind": "subnet-api",
+      "name": "Green Compute Get Build",
+      "notes": "Auth-gated GET /platform/builds/{build_id} on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/builds/%7Bbuild_id%7D"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-builds-build-id-attempts",
+      "kind": "subnet-api",
+      "name": "Green Compute Get Build Attempts",
+      "notes": "Auth-gated GET /platform/builds/{build_id}/attempts on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/builds/%7Bbuild_id%7D/attempts"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-builds-build-id-attempts-attempt",
+      "kind": "subnet-api",
+      "name": "Green Compute Get Build Attempt",
+      "notes": "Auth-gated GET /platform/builds/{build_id}/attempts/{attempt} on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/builds/%7Bbuild_id%7D/attempts/%7Battempt%7D"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-platform-builds-build-id-cancel",
+      "kind": "subnet-api",
+      "name": "Green Compute Cancel Build",
+      "notes": "Auth-gated POST /platform/builds/{build_id}/cancel on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/builds/%7Bbuild_id%7D/cancel"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-platform-builds-build-id-cleanup",
+      "kind": "subnet-api",
+      "name": "Green Compute Cleanup Build",
+      "notes": "Auth-gated POST /platform/builds/{build_id}/cleanup on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/builds/%7Bbuild_id%7D/cleanup"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-builds-build-id-context",
+      "kind": "subnet-api",
+      "name": "Green Compute Get Build Context",
+      "notes": "Auth-gated GET /platform/builds/{build_id}/context on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/builds/%7Bbuild_id%7D/context"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-builds-build-id-events",
+      "kind": "subnet-api",
+      "name": "Green Compute Get Build Events",
+      "notes": "Auth-gated GET /platform/builds/{build_id}/events on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/builds/%7Bbuild_id%7D/events"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-builds-build-id-jobs",
+      "kind": "subnet-api",
+      "name": "Green Compute Get Build Jobs",
+      "notes": "Auth-gated GET /platform/builds/{build_id}/jobs on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/builds/%7Bbuild_id%7D/jobs"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-builds-build-id-jobs-latest",
+      "kind": "subnet-api",
+      "name": "Green Compute Get Latest Build Job",
+      "notes": "Auth-gated GET /platform/builds/{build_id}/jobs/latest on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/builds/%7Bbuild_id%7D/jobs/latest"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-platform-builds-build-id-jobs-latest-cancel",
+      "kind": "subnet-api",
+      "name": "Green Compute Cancel Latest Build Job",
+      "notes": "Auth-gated POST /platform/builds/{build_id}/jobs/latest/cancel on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/builds/%7Bbuild_id%7D/jobs/latest/cancel"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-platform-builds-build-id-jobs-latest-restart",
+      "kind": "subnet-api",
+      "name": "Green Compute Restart Latest Build Job",
+      "notes": "Auth-gated POST /platform/builds/{build_id}/jobs/latest/restart on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/builds/%7Bbuild_id%7D/jobs/latest/restart"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-builds-build-id-jobs-latest-timeline",
+      "kind": "subnet-api",
+      "name": "Green Compute Get Latest Build Job Timeline",
+      "notes": "Auth-gated GET /platform/builds/{build_id}/jobs/latest/timeline on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/builds/%7Bbuild_id%7D/jobs/latest/timeline"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-builds-build-id-logs",
+      "kind": "subnet-api",
+      "name": "Green Compute Get Build Logs",
+      "notes": "Auth-gated GET /platform/builds/{build_id}/logs on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/builds/%7Bbuild_id%7D/logs"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-builds-build-id-logs-stream",
+      "kind": "subnet-api",
+      "name": "Green Compute Stream Build Logs",
+      "notes": "Auth-gated GET /platform/builds/{build_id}/logs/stream on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/builds/%7Bbuild_id%7D/logs/stream"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-builds-build-id-recovery-summary",
+      "kind": "subnet-api",
+      "name": "Green Compute Build Recovery Summary",
+      "notes": "Auth-gated GET /platform/builds/{build_id}/recovery-summary on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/builds/%7Bbuild_id%7D/recovery-summary"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-platform-builds-build-id-retry",
+      "kind": "subnet-api",
+      "name": "Green Compute Retry Build",
+      "notes": "Auth-gated POST /platform/builds/{build_id}/retry on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/builds/%7Bbuild_id%7D/retry"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-platform-deployments",
+      "kind": "subnet-api",
+      "name": "Green Compute Create Deployment",
+      "notes": "Auth-gated POST/GET /platform/deployments on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; 2 operations share this URL and are registered once.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/deployments"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-deployments-deployment-id",
+      "kind": "subnet-api",
+      "name": "Green Compute Get Deployment",
+      "notes": "Auth-gated GET/PATCH/DELETE /platform/deployments/{deployment_id} on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template; 3 operations share this URL and are registered once.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/deployments/%7Bdeployment_id%7D"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-platform-deployments-deployment-id-resume",
+      "kind": "subnet-api",
+      "name": "Green Compute Resume Deployment",
+      "notes": "Auth-gated POST /platform/deployments/{deployment_id}/resume on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/deployments/%7Bdeployment_id%7D/resume"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-deployments-deployment-id-ssh",
+      "kind": "subnet-api",
+      "name": "Green Compute Get Deployment Ssh",
+      "notes": "Auth-gated GET /platform/deployments/{deployment_id}/ssh on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/deployments/%7Bdeployment_id%7D/ssh"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-deployments-deployment-id-stats",
+      "kind": "subnet-api",
+      "name": "Green Compute Get Deployment Stats",
+      "notes": "Auth-gated GET /platform/deployments/{deployment_id}/stats on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/deployments/%7Bdeployment_id%7D/stats"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-platform-images",
+      "kind": "subnet-api",
+      "name": "Green Compute Build Image",
+      "notes": "Auth-gated POST/GET /platform/images on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; 2 operations share this URL and are registered once.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/images"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-platform-images-contexts",
+      "kind": "subnet-api",
+      "name": "Green Compute Upload Build Context",
+      "notes": "Auth-gated POST /platform/images/contexts on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/images/contexts"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-images-image-history",
+      "kind": "subnet-api",
+      "name": "Green Compute Image History",
+      "notes": "Auth-gated GET /platform/images/{image}/history on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/images/%7Bimage%7D/history"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-model-aliases",
+      "kind": "subnet-api",
+      "name": "Green Compute List Model Aliases",
+      "notes": "Auth-gated GET/POST /platform/model-aliases on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; 2 operations share this URL and are registered once.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/model-aliases"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-delete-platform-model-aliases-alias",
+      "kind": "subnet-api",
+      "name": "Green Compute Delete Model Alias",
+      "notes": "Auth-gated DELETE /platform/model-aliases/{alias} on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/model-aliases/%7Balias%7D"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-nodes-supported",
+      "kind": "subnet-api",
+      "name": "Green Compute List Supported Gpus",
+      "notes": "Auth-gated GET /platform/nodes/supported on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/nodes/supported"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-platform-provider-servers",
+      "kind": "subnet-api",
+      "name": "Green Compute Create Provider Server",
+      "notes": "Auth-gated POST/GET /platform/provider/servers on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; 2 operations share this URL and are registered once.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/provider/servers"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-provider-servers-server-id",
+      "kind": "subnet-api",
+      "name": "Green Compute Get Provider Server",
+      "notes": "Auth-gated GET/DELETE /platform/provider/servers/{server_id} on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template; 2 operations share this URL and are registered once.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/provider/servers/%7Bserver_id%7D"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-platform-register",
+      "kind": "subnet-api",
+      "name": "Green Compute Register User",
+      "notes": "Auth-gated POST /platform/register on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/register"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-platform-sales-bare-metal-inquiries",
+      "kind": "subnet-api",
+      "name": "Green Compute Create Bare Metal Inquiry",
+      "notes": "Auth-gated POST/GET /platform/sales/bare-metal-inquiries on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; 2 operations share this URL and are registered once.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/sales/bare-metal-inquiries"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-patch-platform-sales-bare-metal-inquiries-inquiry-id",
+      "kind": "subnet-api",
+      "name": "Green Compute Update Bare Metal Inquiry",
+      "notes": "Auth-gated PATCH /platform/sales/bare-metal-inquiries/{inquiry_id} on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/sales/bare-metal-inquiries/%7Binquiry_id%7D"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-platform-sales-inquiries",
+      "kind": "subnet-api",
+      "name": "Green Compute Create Commercial Inquiry",
+      "notes": "Auth-gated POST/GET /platform/sales/inquiries on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; 2 operations share this URL and are registered once.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/sales/inquiries"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-patch-platform-sales-inquiries-inquiry-id",
+      "kind": "subnet-api",
+      "name": "Green Compute Update Commercial Inquiry",
+      "notes": "Auth-gated PATCH /platform/sales/inquiries/{inquiry_id} on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/sales/inquiries/%7Binquiry_id%7D"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-platform-secrets",
+      "kind": "subnet-api",
+      "name": "Green Compute Create Secret",
+      "notes": "Auth-gated POST/GET /platform/secrets on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; 2 operations share this URL and are registered once.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/secrets"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-delete-platform-secrets-secret-id",
+      "kind": "subnet-api",
+      "name": "Green Compute Delete Secret",
+      "notes": "Auth-gated DELETE /platform/secrets/{secret_id} on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/secrets/%7Bsecret_id%7D"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-users",
+      "kind": "subnet-api",
+      "name": "Green Compute List Users",
+      "notes": "Auth-gated GET /platform/users on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/users"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-users-user-id",
+      "kind": "subnet-api",
+      "name": "Green Compute Get User",
+      "notes": "Auth-gated GET/PATCH /platform/users/{user_id} on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template; 2 operations share this URL and are registered once.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/users/%7Buser_id%7D"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-users-user-id-balance",
+      "kind": "subnet-api",
+      "name": "Green Compute Get User Balance",
+      "notes": "Auth-gated GET /platform/users/{user_id}/balance on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/users/%7Buser_id%7D/balance"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-v1-debug-build-failures",
+      "kind": "subnet-api",
+      "name": "Green Compute Debug Build Failures",
+      "notes": "Auth-gated GET /platform/v1/debug/build-failures on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/v1/debug/build-failures"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-v1-debug-invocation-failures",
+      "kind": "subnet-api",
+      "name": "Green Compute Debug Invocation Failures",
+      "notes": "Auth-gated GET /platform/v1/debug/invocation-failures on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/v1/debug/invocation-failures"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-v1-debug-route-model",
+      "kind": "subnet-api",
+      "name": "Green Compute Debug Route",
+      "notes": "Auth-gated GET /platform/v1/debug/route/{model} on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/v1/debug/route/%7Bmodel%7D"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-v1-debug-routing-decisions",
+      "kind": "subnet-api",
+      "name": "Green Compute Debug Routing Decisions",
+      "notes": "Auth-gated GET /platform/v1/debug/routing-decisions on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/v1/debug/routing-decisions"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-v1-invocations",
+      "kind": "subnet-api",
+      "name": "Green Compute List Invocations",
+      "notes": "Auth-gated GET /platform/v1/invocations on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/v1/invocations"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-v1-invocations-exports-recent",
+      "kind": "subnet-api",
+      "name": "Green Compute Export Recent Invocations",
+      "notes": "Auth-gated GET /platform/v1/invocations/exports/recent on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/v1/invocations/exports/recent"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-v1-invocations-invocation-id",
+      "kind": "subnet-api",
+      "name": "Green Compute Get Invocation",
+      "notes": "Auth-gated GET /platform/v1/invocations/{invocation_id} on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/v1/invocations/%7Binvocation_id%7D"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-v1-metrics",
+      "kind": "subnet-api",
+      "name": "Green Compute Platform Metrics",
+      "notes": "Auth-gated GET /platform/v1/metrics on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/v1/metrics"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-v1-payment-summary",
+      "kind": "subnet-api",
+      "name": "Green Compute Payment Summary",
+      "notes": "Auth-gated GET /platform/v1/payment/summary on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/v1/payment/summary"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-platform-workloads",
+      "kind": "subnet-api",
+      "name": "Green Compute Create Workload",
+      "notes": "Auth-gated POST/GET /platform/workloads on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; 2 operations share this URL and are registered once.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/workloads"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-workloads-workload-id",
+      "kind": "subnet-api",
+      "name": "Green Compute Get Workload",
+      "notes": "Auth-gated GET/PATCH/DELETE /platform/workloads/{workload_id} on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template; 3 operations share this URL and are registered once.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/workloads/%7Bworkload_id%7D"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-platform-workloads-workload-id-shares",
+      "kind": "subnet-api",
+      "name": "Green Compute Share Workload",
+      "notes": "Auth-gated POST/GET /platform/workloads/{workload_id}/shares on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template; 2 operations share this URL and are registered once.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/workloads/%7Bworkload_id%7D/shares"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-workloads-workload-id-utilization",
+      "kind": "subnet-api",
+      "name": "Green Compute Get Workload Utilization",
+      "notes": "Auth-gated GET /platform/workloads/{workload_id}/utilization on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/workloads/%7Bworkload_id%7D/utilization"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-platform-workloads-workload-id-warmup",
+      "kind": "subnet-api",
+      "name": "Green Compute Workload Warmup",
+      "notes": "Auth-gated GET /platform/workloads/{workload_id}/warmup on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false; path-parameterized template.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/platform/workloads/%7Bworkload_id%7D/warmup"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-get-registry-auth",
+      "kind": "subnet-api",
+      "name": "Green Compute Registry Auth",
+      "notes": "Auth-gated GET /registry/auth on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/registry/auth"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-v1-completions",
+      "kind": "subnet-api",
+      "name": "Green Compute Completions",
+      "notes": "Auth-gated POST /v1/completions on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/v1/completions"
+    },
+    {
+      "auth": {
+        "scheme": "custom",
+        "scopes_note": "Not publicly documented in the OpenAPI schema (no securitySchemes), but anonymous callers typically receive HTTP 401 missing api key (live-verified 2026-07-21 on /platform/nodes/supported and siblings). Same posture as sn-110-green-compute-chat-completions-api."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-110-green-compute-post-v1-embeddings",
+      "kind": "subnet-api",
+      "name": "Green Compute Embeddings",
+      "notes": "Auth-gated POST /v1/embeddings on api.green-compute.com from the GreenCompute Gateway OpenAPI schema (sn-110-green-compute-openapi). Schema declares no security scheme, but live anonymous calls return 401 missing api key on representative routes (#7121). auth_required:true, probe.enabled:false.",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "green-compute",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://api.green-compute.com/openapi.json",
+        "https://www.green-compute.com/"
+      ],
+      "url": "https://api.green-compute.com/v1/embeddings"
     }
   ],
   "website_url": "https://www.green-compute.com/"
