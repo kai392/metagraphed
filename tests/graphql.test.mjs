@@ -14758,6 +14758,76 @@ describe("graphql — subnet_health_trends (#5883, Postgres-tier + D1-live fallb
   });
 });
 
+describe("graphql — subnet_health (#7640, live-cron overlay parity with REST + MCP)", () => {
+  const NETUID = 7;
+
+  test("subnet_health overlays the live per-surface card for the netuid", async () => {
+    const env = fixtureEnv(
+      {},
+      {
+        kv: {
+          [KV_HEALTH_CURRENT]: {
+            surfaces: [
+              {
+                surface_id: "7:subnet-api:x",
+                netuid: NETUID,
+                kind: "subnet-api",
+                provider: "x",
+                url: "https://x.example/api",
+                status: "ok",
+                classification: "live",
+                latency_ms: 120,
+                last_ok: "2026-06-13T00:00:00.000Z",
+                last_checked: "2026-06-13T00:05:00.000Z",
+              },
+            ],
+          },
+        },
+      },
+    );
+    const { status, body } = await gql(
+      `{ subnet_health(netuid: ${NETUID}) }`,
+      env,
+    );
+    assert.equal(status, 200);
+    const card = body.data.subnet_health;
+    assert.equal(card.netuid, NETUID);
+    assert.equal(card.surfaces.length, 1);
+    assert.equal(card.surfaces[0].status, "ok");
+    assert.equal(card.summary.surface_count, 1);
+    assert.equal(card.summary.status, "ok");
+    // loadSubnetReliability() returns null since D1 retirement -- the card still
+    // resolves, matching the get_subnet_health MCP tool's null-reliability path.
+    assert.equal(card.reliability, null);
+  });
+
+  test("subnet_health resolves the schema-stable unknown card when the live store is cold", async () => {
+    const { status, body } = await gql(
+      `{ subnet_health(netuid: ${NETUID}) }`,
+      emptyEnv,
+    );
+    assert.equal(status, 200);
+    assert.deepEqual(body.data.subnet_health, {
+      schema_version: 1,
+      netuid: NETUID,
+      summary: { status: "unknown", surface_count: 0 },
+      operational_observed_at: null,
+      health_source: "unavailable",
+      reliability: null,
+      surfaces: [],
+    });
+  });
+
+  test("subnet_health rejects a negative netuid with BAD_USER_INPUT", async () => {
+    const { body } = await gql("{ subnet_health(netuid: -1) }", emptyEnv);
+    assert.equal(body.errors[0].extensions.code, "BAD_USER_INPUT");
+  });
+
+  test("subnet_health is weighted as a fan-out field", () => {
+    assert.equal(FIELD_COMPLEXITY.subnet_health, 5);
+  });
+});
+
 describe("graphql — subnet_uptime (#5885, Postgres-tier + D1-live fallback)", () => {
   const NETUID = 7;
 
