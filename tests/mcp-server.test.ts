@@ -6940,10 +6940,7 @@ describe("MCP call_rpc", () => {
       );
       assert.equal(res.body.result.isError, true);
       assert.match(res.body.result.content[0].text, /rpc_upstream_error/);
-      assert.match(
-        res.body.result.content[0].text,
-        /HTTP 403: Forbidden/,
-      );
+      assert.match(res.body.result.content[0].text, /HTTP 403: Forbidden/);
       assert.equal(
         res.body.result.structuredContent.error.code,
         "rpc_upstream_error",

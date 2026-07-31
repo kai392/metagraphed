@@ -9394,9 +9394,7 @@ export const MCP_TOOLS: McpToolDefinition[] = [
         // errorResponse(), so a non-envelope body is reachable and must be
         // handled — mirror the non-JSON guard above with a specific fallback.
         const row =
-          payload && typeof payload === "object"
-            ? (payload as Row)
-            : null;
+          payload && typeof payload === "object" ? (payload as Row) : null;
         const err = row?.error;
         if (err && typeof err === "object" && !Array.isArray(err)) {
           const codeRaw = (err as Row).code;
